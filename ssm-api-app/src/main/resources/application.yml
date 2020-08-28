@@ -1,0 +1,119 @@
+server:
+  port: 14680
+  #port: ${SERVER_PORT}
+
+spring:
+  datasource:
+    driver-class-name:  com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://192.168.100.100:3306/ssm?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&zeroDateTimeBehavior=convertToNull&useSSL=false&logger=com.mysql.cj.log.Slf4JLogger
+    username: root
+    password: 123.abc
+
+  rabbitmq:
+    host: 10.2.100.11
+    port: 5672
+    username: admin
+    password: admin
+    virtual-host: infrastructure
+    publisher-confirms: true
+    connection-timeout: 1000ms
+    template:
+      retry:
+        enabled: true
+    listener:
+      simple:
+        acknowledge-mode: auto
+
+  redis:
+    database: 0
+    host: 10.2.101.8
+    port: 6379
+    timeout: 5000ms
+    password: Yixin2018
+    lettuce:
+      pool:
+        max-active: 8
+        max-idle: 8
+        max-wait: -1ms
+        min-idle: 0
+    jedis:
+      use-pool: true
+      pool:
+        max-active: 8
+        max-idle: 8
+        max-wait: -1ms
+        min-idle: 0
+        test-on-borrow: false
+        block-when-exhausted: true
+
+  data:
+    elasticsearch:
+      # cluster-name: TX-ISC-ST-ES_cluster03
+      # cluster-nodes: 10.2.100.55:9300,10.2.100.94:9300,10.2.100.95:9300
+      cluster-name: TX-ISC-ES_cluster01
+      cluster-nodes: 10.2.100.16:9300
+      username: elastic
+      password: elastic2018
+      properties:
+        cluster.name: ${spring.data.elasticsearch.cluster-name}
+        client.transport.sniff: true
+        client.transport.ignore_cluster_name: false
+        client.transport.ping_timeout: 5s
+        client.transport.nodes_sampler_interval: 5s
+        xpack.security.user: ${spring.data.elasticsearch.username}:${spring.data.elasticsearch.password}
+
+      repositories:
+        enabled: false
+
+  elasticsearch:
+    jest:
+      username: elastic
+      password: elastic2018
+      uris:
+      - http://10.2.100.16:9200
+      # - http://10.2.100.55:9200
+      # - http://10.2.100.94:9200
+      # - http://10.2.100.95:9200
+      read-timeout: 60s
+      connection-timeout: 5s
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://10.2.100.24:8761/eureka/,http://10.2.100.25:8762/eureka/
+  instance:
+    preferIpAddress: true
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+
+api:
+  bihu:
+    renewal:
+      url: http://iu.91bihu.com/api/CarInsurance/getreinfo
+      app-key: HYmSS3NOUzu
+  goseek:
+    url: http://api.goseek.cn/Tools/holiday
+
+settings:
+  rabbitmq:
+    exchange: infrastructure
+    queue-name: channel_change
+    routing-key1: channel_change
+
+##============================================================================
+## mybatis configuration
+##============================================================================
+mybatis:
+  mapper-locations: classpath:META-INF/mybatis/mapper/*Mapper*.xml
+  type-aliases-package: com.wnslp.ssm.domain.entity
+  configuration:
+    log-prefix: com.wnslp.ssm.dao
+    log-impl: org.apache.ibatis.logging.slf4j.Slf4jImpl
+
+pagehelper:
+  helperDialect: mysql
+  offset-as-page-num: true
+  row-bounds-with-count: true
+  page-size-zero: true
+  reasonable: false
+  support-methods-arguments: true
+  params: pageNum=page;pageSize=size;count=countSql

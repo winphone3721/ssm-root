@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <properties resource="META-INF/mybatis/generator.properties"/>
+    <context id="MySQLTables"
+             targetRuntime="org.mybatis.generator.codegen.mybatis3.MyIntrospectedTableMyBatis3Impl">
+
+        <property name="javaFileEncoding" value="UTF-8"/>
+        <property name="addGWTInterface" value="false"/>
+        <property name="suppressJavaInterface" value="false"/>
+
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>
+        <!--<plugin type="org.mybatis.generator.plugins.GuavaStyleToStringPlugin"/>-->
+
+        <commentGenerator type="org.mybatis.generator.internal.MyCommentGenerator">
+            <property name="suppressAllComments" value="${suppress_all_comments}"/>
+            <property name="addRemarkComments" value="${add_remark_comments}"/>
+        </commentGenerator>
+
+        <jdbcConnection
+                driverClass="${jdbc.driverClass}"
+                connectionURL="${jdbc.url}"
+                userId="${jdbc.username}"
+                password="${jdbc.password}">
+        </jdbcConnection>
+
+        <javaTypeResolver type="org.mybatis.generator.internal.types.JavaTypeResolverImpl">
+            <property name="forceBigDecimals" value="false"/>
+            <property name="useJava8Time" value="${jdk.use_jdk8_time}"/>
+            <property name="useJSR310Types" value="${use_jsr310_types}"/>
+        </javaTypeResolver>
+
+        <javaModelGenerator
+                targetProject="${domain.target.project}"
+                targetPackage="${domain.package}">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+            <property name="constructorBased" value="false"/>
+        </javaModelGenerator>
+
+        <sqlMapGenerator
+                targetProject="${sql.mapper.target.project}"
+                targetPackage="${sql.mapper.package}">
+            <property name="enableSubPackages" value="false"/>
+        </sqlMapGenerator>
+
+        <javaClientGenerator
+                targetProject="${java.mapper.target.project}"
+                targetPackage="${java.mapper.package}"
+                type="XMLMAPPER">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+
+        <table tableName="user" domainObjectName="user"
+               enableSelectByExample="false"
+               enableCountByExample="false"
+               enableDeleteByExample="false"
+               enableUpdateByExample="false">
+            <property name="useActualColumnNames" value="false"/>
+            <property name="selectAllOrderByClause" value="id DESC"/>
+            <!--JDBC / SqlServer / MySql-->
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+        </table>
+
+        <!--<table tableName="bihu_renewal_data" domainObjectName="BihuRenewalData"-->
+        <!--enableSelectByExample="false"-->
+        <!--enableCountByExample="false"-->
+        <!--enableDeleteByExample="false"-->
+        <!--enableUpdateByExample="false">-->
+        <!--<property name="useActualColumnNames" value="false"/>-->
+        <!--<property name="selectAllOrderByClause" value="id DESC"/>-->
+        <!--&lt;!&ndash;&lt;!&ndash;JDBC / SqlServer / MySql&ndash;&gt;&ndash;&gt;-->
+        <!--<generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
+        <!--<columnOverride column="applicant_name" typeHandler="com.yixincapital.isc.security.mybatis.YixinCryptoTypeHandler"/>-->
+        <!--<columnOverride column="applicant_certificate_no" typeHandler="com.yixincapital.isc.security.mybatis.YixinCryptoTypeHandler"/>-->
+        <!--<columnOverride column="applicant_mobile" typeHandler="com.yixincapital.isc.security.mybatis.YixinCryptoTypeHandler"/>-->
+        <!--<columnOverride column="owner_name" typeHandler="com.yixincapital.isc.security.mybatis.YixinCryptoTypeHandler"/>-->
+        <!--<columnOverride column="owner_certificate_no" typeHandler="com.yixincapital.isc.security.mybatis.YixinCryptoTypeHandler"/>-->
+        <!--<columnOverride column="insured_name" typeHandler="com.yixincapital.isc.security.mybatis.YixinCryptoTypeHandler"/>-->
+        <!--<columnOverride column="insured_certificate_no" typeHandler="com.yixincapital.isc.security.mybatis.YixinCryptoTypeHandler"/>-->
+        <!--<columnOverride column="insured_mobile" typeHandler="com.yixincapital.isc.security.mybatis.YixinCryptoTypeHandler"/>-->
+        <!--<columnOverride column="vin" typeHandler="com.yixincapital.isc.security.mybatis.YixinCryptoTypeHandler"/>-->
+        <!--<columnOverride column="engine_no" typeHandler="com.yixincapital.isc.security.mybatis.YixinCryptoTypeHandler"/>-->
+        <!--</table>-->
+
+        <!--<table tableName="district" domainObjectName="District"-->
+        <!--enableSelectByExample="false"-->
+        <!--enableCountByExample="false"-->
+        <!--enableDeleteByExample="false"-->
+        <!--enableUpdateByExample="false">-->
+        <!--<property name="useActualColumnNames" value="false"/>-->
+        <!--<property name="selectAllOrderByClause" value="id DESC"/>-->
+        <!--&lt;!&ndash;JDBC / SqlServer / MySql&ndash;&gt;-->
+        <!--&lt;!&ndash;<generatedKey column="id" sqlStatement="MySql" identity="true"/>&ndash;&gt;-->
+        <!--</table>-->
+
+        <!--<table tableName="calendar" domainObjectName="Calendar"-->
+        <!--enableSelectByExample="false"-->
+        <!--enableCountByExample="false"-->
+        <!--enableDeleteByExample="false"-->
+        <!--enableUpdateByExample="false">-->
+        <!--<property name="useActualColumnNames" value="false"/>-->
+        <!--<property name="selectAllOrderByClause" value="id DESC"/>-->
+        <!--&lt;!&ndash;JDBC / SqlServer / MySql&ndash;&gt;-->
+        <!--<generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
+        <!--</table>-->
+
+        <!--<table tableName="msg_sent_records" domainObjectName="MsgSentRecord"-->
+        <!--enableSelectByExample="false"-->
+        <!--enableCountByExample="false"-->
+        <!--enableDeleteByExample="false"-->
+        <!--enableUpdateByExample="false">-->
+        <!--<property name="useActualColumnNames" value="false"/>-->
+        <!--<property name="selectAllOrderByClause" value="id DESC"/>-->
+        <!--&lt;!&ndash;JDBC / SqlServer / MySql&ndash;&gt;-->
+        <!--&lt;!&ndash;<generatedKey column="id" sqlStatement="MySql" identity="true"/>&ndash;&gt;-->
+        <!--</table>-->
+
+        <!--<table tableName="channels" domainObjectName="Channel"-->
+        <!--enableSelectByExample="false"-->
+        <!--enableCountByExample="false"-->
+        <!--enableDeleteByExample="false"-->
+        <!--enableUpdateByExample="false">-->
+        <!--<property name="useActualColumnNames" value="false"/>-->
+        <!--<property name="selectAllOrderByClause" value="id DESC"/>-->
+        <!--&lt;!&ndash;JDBC / SqlServer / MySql&ndash;&gt;-->
+        <!--<generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
+        <!--<columnOverride column="ext"-->
+        <!--jdbcType="VARCHAR"-->
+        <!--javaType="com.alibaba.fastjson.JSONObject"-->
+        <!--typeHandler="com.xintai.infrastructure.typehandler.JSONObjectTypeHandler"/>-->
+        <!--</table>-->
+
+        <!--<table tableName="sms_templates" domainObjectName="SmsTemplate"-->
+        <!--enableSelectByExample="false"-->
+        <!--enableCountByExample="false"-->
+        <!--enableDeleteByExample="false"-->
+        <!--enableUpdateByExample="false">-->
+        <!--<property name="useActualColumnNames" value="false"/>-->
+        <!--<property name="selectAllOrderByClause" value="id DESC"/>-->
+        <!--&lt;!&ndash;JDBC / SqlServer / MySql&ndash;&gt;-->
+        <!--<generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
+        <!--<columnOverride column="tpl_vars"-->
+        <!--jdbcType="VARCHAR"-->
+        <!--javaType="com.alibaba.fastjson.JSONObject"-->
+        <!--typeHandler="com.xintai.infrastructure.typehandler.JSONObjectTypeHandler"/>-->
+        <!--</table>-->
+
+        <!--<table tableName="sms_records" domainObjectName="SmsRecord"-->
+        <!--enableSelectByExample="false"-->
+        <!--enableCountByExample="false"-->
+        <!--enableDeleteByExample="false"-->
+        <!--enableUpdateByExample="false">-->
+        <!--<property name="useActualColumnNames" value="false"/>-->
+        <!--<property name="selectAllOrderByClause" value="id DESC"/>-->
+        <!--&lt;!&ndash;JDBC / SqlServer / MySql&ndash;&gt;-->
+        <!--<generatedKey column="id" sqlStatement="JDBC" identity="false"/>-->
+        <!--</table>-->
+
+        <!--<table tableName="sms_template_vars" domainObjectName="SmsTemplateVar"-->
+        <!--enableSelectByExample="false"-->
+        <!--enableCountByExample="false"-->
+        <!--enableDeleteByExample="false"-->
+        <!--enableUpdateByExample="false">-->
+        <!--<property name="useActualColumnNames" value="false"/>-->
+        <!--<property name="selectAllOrderByClause" value="id DESC"/>-->
+        <!--&lt;!&ndash;JDBC / SqlServer / MySql&ndash;&gt;-->
+        <!--<generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
+        <!--</table>-->
+
+        <!--<table tableName="sms_mobiles" domainObjectName="SmsMobile"-->
+        <!--enableSelectByExample="false"-->
+        <!--enableCountByExample="false"-->
+        <!--enableDeleteByExample="false"-->
+        <!--enableUpdateByExample="false">-->
+        <!--<property name="useActualColumnNames" value="false"/>-->
+        <!--<property name="selectAllOrderByClause" value="id DESC"/>-->
+        <!--</table>-->
+
+        <!--<table tableName="corp_wechat_contacts" domainObjectName="CorpWechatContact"-->
+        <!--enableSelectByExample="false"-->
+        <!--enableCountByExample="false"-->
+        <!--enableDeleteByExample="false"-->
+        <!--enableUpdateByExample="false">-->
+        <!--<property name="useActualColumnNames" value="false"/>-->
+        <!--<property name="selectAllOrderByClause" value="id DESC"/>-->
+        <!--&lt;!&ndash;JDBC / SqlServer / MySql&ndash;&gt;-->
+        <!--&lt;!&ndash;<generatedKey column="id" sqlStatement="MySql" identity="true"/>&ndash;&gt;-->
+        <!--</table>-->
+
+        <!--<table tableName="sms_channels" domainObjectName="SmsChannel"-->
+        <!--enableSelectByExample="false"-->
+        <!--enableCountByExample="false"-->
+        <!--enableDeleteByExample="false"-->
+        <!--enableUpdateByExample="false">-->
+        <!--<property name="useActualColumnNames" value="false"/>-->
+        <!--<property name="selectAllOrderByClause" value="id DESC"/>-->
+        <!--&lt;!&ndash;JDBC / SqlServer / MySql&ndash;&gt;-->
+        <!--&lt;!&ndash;<generatedKey column="id" sqlStatement="MySql" identity="true"/>&ndash;&gt;-->
+        <!--</table>-->
+
+        <!--<table tableName="ocr_idcard_records" domainObjectName="IdcardRecord"-->
+        <!--enableSelectByExample="false"-->
+        <!--enableCountByExample="false"-->
+        <!--enableDeleteByExample="false"-->
+        <!--enableUpdateByExample="false">-->
+        <!--<property name="useActualColumnNames" value="false"/>-->
+        <!--<property name="selectAllOrderByClause" value="id DESC"/>-->
+        <!--&lt;!&ndash;JDBC / SqlServer / MySql&ndash;&gt;-->
+        <!--<generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
+        <!--&lt;!&ndash;<columnOverride column="id_number"&ndash;&gt;-->
+        <!--&lt;!&ndash;jdbcType="VARCHAR"&ndash;&gt;-->
+        <!--&lt;!&ndash;javaType="java.lang.String"&ndash;&gt;-->
+        <!--&lt;!&ndash;typeHandler="com.yixincapital.isc.security.mybatis.YixinCryptoTypeHandler"/>&ndash;&gt;-->
+        <!--</table>-->
+
+        <!--<table tableName="ocr_driverlicense_records" domainObjectName="DriverLicenseRecord"-->
+        <!--enableSelectByExample="false"-->
+        <!--enableCountByExample="false"-->
+        <!--enableDeleteByExample="false"-->
+        <!--enableUpdateByExample="false">-->
+        <!--<property name="useActualColumnNames" value="false"/>-->
+        <!--<property name="selectAllOrderByClause" value="id DESC"/>-->
+        <!--&lt;!&ndash;JDBC / SqlServer / MySql&ndash;&gt;-->
+        <!--<generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
+        <!--</table>-->
+
+        <!--<table tableName="short_url_access_records" domainObjectName="ShortUrlAccessRecords"-->
+        <!--enableSelectByExample="false"-->
+        <!--enableCountByExample="false"-->
+        <!--enableDeleteByExample="false"-->
+        <!--enableUpdateByExample="false">-->
+        <!--<property name="useActualColumnNames" value="false"/>-->
+        <!--<property name="selectAllOrderByClause" value="id DESC"/>-->
+        <!--&lt;!&ndash;JDBC / SqlServer / MySql&ndash;&gt;-->
+        <!--<generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
+        <!--</table>-->
+
+        <!--<table tableName="short_url" domainObjectName="ShortUrl"-->
+        <!--enableSelectByExample="false"-->
+        <!--enableCountByExample="false"-->
+        <!--enableDeleteByExample="false"-->
+        <!--enableUpdateByExample="false">-->
+        <!--<property name="useActualColumnNames" value="false"/>-->
+        <!--<property name="selectAllOrderByClause" value="id DESC"/>-->
+        <!--&lt;!&ndash;JDBC / SqlServer / MySql&ndash;&gt;-->
+        <!--<generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
+        <!--</table>-->
+
+        <table tableName="short_url_sequence_value" domainObjectName="ShortUrlSequenceValue"
+               enableSelectByExample="false"
+               enableCountByExample="false"
+               enableDeleteByExample="false"
+               enableUpdateByExample="false">
+            <property name="useActualColumnNames" value="false"/>
+            <property name="selectAllOrderByClause" value="id DESC"/>
+            <!--JDBC / SqlServer / MySql-->
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+        </table>
+    </context>
+</generatorConfiguration>
